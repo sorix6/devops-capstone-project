@@ -62,7 +62,6 @@ pipeline {
                     withAWS(credentials: 'aws-credentials-eks', region: 'us-west-2') {
                         sh "./infrastructure/update-kubeconfig.sh"
                         sh "kubectl apply -f ./infrastructure/aws-auth-cm.yml"
-                        sh "kubectl set image deployments/capstone-project capstone-project=${registry}:latest"
                         sh "kubectl apply -f ./deployment/capstone-project.yml"
                         sh "kubectl get nodes"
                         sh "kubectl get pods"
