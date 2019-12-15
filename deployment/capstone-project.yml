@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capstone-project
+  labels:
+    app: capstone-project
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: capstone-project
+  template:
+    metadata:
+      labels:
+        app: capstone-project
+    spec:
+      containers:
+      - name: capstone-project
+        image: sorix6/capstone-project:latest
+        ports:
+        - containerPort: 80
+  strategy:
+    type: RollingUpdate
