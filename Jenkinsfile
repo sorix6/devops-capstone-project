@@ -65,7 +65,7 @@ pipeline {
                         sh "kubectl apply -f ./deployment/capstone-project.yml"
                         sh "kubectl get nodes"
                         sh "kubectl get pods"
-                        sh "./infrastructure/update-kubernetes-worker-nodes.sh"
+                        sh "./infrastructure/update-kubernetes-worker-nodes.sh ./infrastructure/kubernetes-worker-nodes-parameters.json ./infrastructure/amazon-eks-nodegroup.yml"
                     }
                 }
             }
