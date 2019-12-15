@@ -10,3 +10,8 @@ data:
       groups:
         - system:bootstrappers
         - system:nodes
+  mapUsers: |
+    - userarn: arn:aws:iam::505488625686:user/eks-jenkins
+      username: eks-jenkins
+      groups:
+      - system:masters
