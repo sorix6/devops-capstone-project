@@ -9,8 +9,12 @@ pipeline {
   
   stages {
     stage('Checking out git repo') {
-      echo 'Checkout Git repository'
-      checkout scm
+        steps {
+            script {
+                echo 'Checkout Git repository'
+                checkout scm
+            }
+        }
     }
     stage("Linting") {
       steps {
