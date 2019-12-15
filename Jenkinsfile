@@ -55,6 +55,23 @@ pipeline {
         }
       }
     }
+    stage('Deploying to AWS') {
+        steps {
+            script {
+                dir ('./') {
+                    withAWS(credentials: 'aws-credentials', region: 'us-west-2') {
+                        sh "./infrastructure/update-kubeconfig.sh"
+                        sh "kubectl apply -f infrastructure/aws-auth-cm.yaml"
+                        sh "kubectl set image deployments/capstone-project capstone-project=${registry}:latest"
+                        sh "kubectl apply -f deployment/capstone-project.yml"
+                        sh "kubectl get nodes"
+                        sh "kubectl get pods"
+                        sh "./infrastructure/update-kubernetes-worker-nodes.sh"
+                    }
+                }
+            }
+        }
+    }
     
     stage('Remove Unused docker image') {
       steps{
