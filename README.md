@@ -240,3 +240,11 @@ Untagged: sorix6/capstone-project:latest
 [Pipeline] End of Pipeline
 Finished: SUCCESS
 ```
+
+##### Additional resources
+
+* The source code for the example application was forked from https://github.com/dockersamples/linux_tweet_app
+* https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+* https://www.mirantis.com/blog/introduction-to-yaml-creating-a-kubernetes-deployment/
+* https://puppet.com/docs/pipelines-for-containers/free/kubernetes-spec.html
+* https://success.docker.com/article/how-to-control-container-placement-in-kubernetes-deployments
