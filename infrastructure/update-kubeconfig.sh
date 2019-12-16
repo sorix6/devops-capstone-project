@@ -1,1 +1,1 @@
-aws eks --region us-west-2 update-kubeconfig --name production
+aws eks --region us-west-2 update-kubeconfig --name capstone-project

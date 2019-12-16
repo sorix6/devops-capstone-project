@@ -25,7 +25,7 @@
     },
     {
         "ParameterKey": "ClusterName",
-        "ParameterValue": "production"
+        "ParameterValue": "capstone-project"
     },
     {
         "ParameterKey": "Subnets",
