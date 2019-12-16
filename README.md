@@ -5,9 +5,9 @@
 '''
 {
     "cluster": {
-        "name": "production",
-        "arn": "arn:aws:eks:us-west-2:505488625686:cluster/production",
-        "createdAt": 1576418734.719,
+        "name": "capstone-project",
+        "arn": "arn:aws:eks:us-west-2:505488625686:cluster/capstone-project",
+        "createdAt": 1576522852.65,
         "version": "1.14",
         "roleArn": "arn:aws:iam::505488625686:role/eksrole",
         "resourcesVpcConfig": {
@@ -39,7 +39,7 @@
         },
         "status": "CREATING",
         "certificateAuthority": {},
-        "platformVersion": "eks.5",
+        "platformVersion": "eks.6",
         "tags": {}
     }
 }
@@ -47,7 +47,7 @@
 
 You can ping status of cluster: 
 ```
-aws eks --region us-west-2 describe-cluster --name production --query cluster.status
+aws eks --region us-west-2 describe-cluster --name capstone-project --query cluster.status
 ```
 
 4. Install kubetcl (tool to manage kubernetes clusters)
