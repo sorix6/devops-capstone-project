@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: production
+  name: capstone-project
   labels:
-    app: production
+    app: capstone-project
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: production
+      app: capstone-project
   template:
     metadata:
       labels:
-        app: production
+        app: capstone-project
     spec:
       containers:
-      - name: production
+      - name: capstone-project
         imagePullPolicy: Always
         image: sorix6/capstone-project
         ports:

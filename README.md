@@ -70,7 +70,7 @@ sudo mv aws-iam-authenticator /usr/bin/aws-iam-authenticator
 
 ```
 ./update-kubeconfig.sh 
-->Added new context arn:aws:eks:us-west-2:505488625686:cluster/production to /home/sorix/.kube/config
+->Added new context arn:aws:eks:us-west-2:505488625686:cluster/capstone-project to /home/sorix/.kube/config
 ```
 
 7. Test configuration: ```kubectl get svc```
