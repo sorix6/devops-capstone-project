@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: capstone-project
+        imagePullPolicy: Always
         image: sorix6/capstone-project:latest
         ports:
         - containerPort: 80
