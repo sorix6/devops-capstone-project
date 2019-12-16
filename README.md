@@ -9,7 +9,9 @@ This project consists in developping a CI/CD pipeline for micro services applica
     * create-eks.sh - creation of the EKS cluster
     * update-kubeconfig.sh - update kubeconfig file with the information on the new cluster so that kubectl can communicate with it
     * launch-kubernetes-worker-nodes.sh - launch worker nodes 
+    
     ! This will return a NodeInstanceRole that needs to be updated in the `aws-auth-cm.yml` file
+
     ! In order for the worker nodes to join our Kubernetes cluster:
     `kubectl apply -f aws-auth-cm.yml`
 
