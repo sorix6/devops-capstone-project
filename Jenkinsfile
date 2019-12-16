@@ -59,15 +59,14 @@ pipeline {
         steps {
             script {
                 dir ('./') {
-                    withAWS(credentials: 'aws-credentials-eks', region: 'us-west-2') {
-                        sh "./infrastructure/update-kubeconfig.sh"
-                        sh "kubectl apply -f ./infrastructure/aws-auth-cm.yml"
-                        sh "kubectl apply -f ./deployment/capstone-project.yml"
-                        sh "kubectl get pods"
-                        sh "kubectl get nodes"
-                        sh "kubectl get pods"
-                        sh ("kubectl set image deployment/capstone-project capstone-ptoject=sorix6/capstone-project:latest")
-                    }
+                  withAWS(credentials: 'aws-credentials-eks', region: 'us-west-2') {
+                    sh "./infrastructure/update-kubeconfig.sh"
+                    sh "kubectl apply -f ./infrastructure/aws-auth-cm.yml"
+                    sh "kubectl apply -f ./deployment/capstone-project.yml"
+                    sh "kubectl get pods"
+                    sh "kubectl get nodes"
+                    sh "kubectl rollout status deployment.v1.apps/capstone-project"
+                  }
                 }
             }
         }
