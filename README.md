@@ -49,7 +49,7 @@ The file `deployment/capstone-project.yml` defines the configuration for the rol
     - The specification of the pod's template (template.spec field); this indicates that the pods run one container, capstone-project, which runs the sorix6/capstone-project
 
 In order to create the deployment, run the command: 
-`kubectl apply -f ./deployment/capstone-project.yml`, in order to create the deployment.
+`kubectl apply -f ./deployment/capstone-project.yml`
 
 In order to update the deployment (update the pods to use the latest version of the Docker Hub image), the Jenkins file contains the following command:
 
