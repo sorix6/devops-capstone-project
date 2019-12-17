@@ -9,7 +9,7 @@ This project consists in developping a CI/CD pipeline for micro services applica
     * create-eks.sh - creation of the EKS cluster
     * update-kubeconfig.sh - update kubeconfig file with the information on the new cluster so that kubectl can communicate with it
     * launch-kubernetes-worker-nodes.sh - launch worker nodes 
-    
+
     ! This will return a NodeInstanceRole that needs to be updated in the `aws-auth-cm.yml` file
 
     ! In order for the worker nodes to join our Kubernetes cluster:
@@ -35,6 +35,25 @@ Screenshot of build failing due to linting error
 Screenshot of linting step passing successfully
 
 ![Project overview](https://raw.githubusercontent.com/sorix6/devops-capstone-project/master/screenshots/no_linting_error.jpg)
+
+##### Rollout deployment
+
+The file `deployment/capstone-project.yml` defines the configuration for the rolling deployment.
+
+* A deployment named capstone-project is created (metadata.name field)
+* The deployment creates 3 replicated pods
+* Select pods with the label `capstone-project`
+* The template field contains the following sub-fields:
+
+    - The pods are labeled app: capstone-project
+    - The specification of the pod's template (template.spec field); this indicates that the pods run one container, capstone-project, which runs the sorix6/capstone-project
+
+In order to create the deployment, run the command: 
+`kubectl apply -f ./deployment/capstone-project.yml`, in order to create the deployment.
+
+In order to update the deployment (update the pods to use the latest version of the Docker Hub image), the Jenkins file contains the following command:
+
+`kubectl set image deployment/capstone-project nginx=sorix6/capstone-project:latest --record`
 
 ##### Build console output
 
